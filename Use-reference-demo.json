@@ -1,0 +1,126 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "path": "workflows/data",
+        "authentication": "basicAuth",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        16,
+        208
+      ],
+      "id": "a631362e-53ac-4d87-ad4b-39e2c9567040",
+      "name": "Webhook",
+      "webhookId": "ef0a77f5-86ee-4d92-b8de-7d63c85b186f",
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "leRFlKjtClbRZfVu",
+          "name": "mobile Auth"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "workflows/set",
+        "authentication": "basicAuth",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        16,
+        0
+      ],
+      "id": "4d386b46-afd9-4a1c-b321-8e491ab79a52",
+      "name": "Webhook1",
+      "webhookId": "23bf05cb-b4fb-49ab-9667-cb98fc97d8f0",
+      "credentials": {
+        "httpBasicAuth": {
+          "id": "leRFlKjtClbRZfVu",
+          "name": "mobile Auth"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "CUSTOM.mobileApp",
+      "typeVersion": 1,
+      "position": [
+        224,
+        208
+      ],
+      "id": "abcd7d99-109b-4a20-b011-cb25fa2836cb",
+      "name": "Mobile App Integration",
+      "credentials": {
+        "n8nApi": {
+          "id": "G1dylvZSgZmZ3zOV",
+          "name": "n8n account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "action": "setWorkflow"
+      },
+      "type": "CUSTOM.mobileApp",
+      "typeVersion": 1,
+      "position": [
+        224,
+        0
+      ],
+      "id": "1682efd8-3d3b-4f1b-976c-22ebf207efcc",
+      "name": "Mobile App Integration1",
+      "credentials": {
+        "n8nApi": {
+          "id": "G1dylvZSgZmZ3zOV",
+          "name": "n8n account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Mobile App Integration",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook1": {
+      "main": [
+        [
+          {
+            "node": "Mobile App Integration1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mobile App Integration": {
+      "main": [
+        []
+      ]
+    },
+    "Mobile App Integration1": {
+      "main": [
+        []
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "69cf3063df3cdc73f31e3d57f67b1a5c1095c1a34e7ef43e8289326cd1f5f82a"
+  }
+}

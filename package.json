@@ -1,0 +1,42 @@
+{
+  "name": "n8n-nodes-mobile",
+  "version": "0.1.0",
+  "description": "n8n node for mobile app integration",
+  "license": "MIT",
+  "homepage": "",
+  "author": {
+    "name": "Seedream",
+    "email": "seedream4@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Seedream4/n8n-mobile.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc && npm run copy-assets",
+    "copy-assets": "node ./scripts/copyAssets.js",
+    "lint": "eslint src/**/*.ts",
+    "prepack": "tsc && npm run copy-assets"
+  },
+  "files": [
+    "dist",
+    "*.json"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/N8nApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/MobileApp/MobileApp.node.js"
+    ]
+  },
+  "devDependencies": {
+    "n8n-workflow": "^0.142.0",
+    "n8n-nodes-base": "^1.0.0",
+    "@types/node": "^18.0.0",
+    "typescript": "^4.8.0"
+  }
+}
