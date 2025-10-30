@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "n8n node for mobile app integration",
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/hundred98/n8n-mobile-node#readme",
   "author": {
     "name": "hundred98",
     "email": "hundred98@163.com"
@@ -12,6 +12,18 @@
     "type": "git",
     "url": "git+https://github.com/hundred98/n8n-mobile-node.git"
   },
+  "bugs": {
+    "url": "https://github.com/hundred98/n8n-mobile-node/issues"
+  },
+  "keywords": [
+    "n8n",
+    "n8n-node",
+    "n8n-nodes",
+    "mobile",
+    "workflow",
+    "integration",
+    "automation"
+  ],
   "main": "index.js",
   "scripts": {
     "dev": "tsc --watch",
