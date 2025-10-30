@@ -5,12 +5,12 @@
   "license": "MIT",
   "homepage": "",
   "author": {
-    "name": "Seedream",
-    "email": "seedream4@gmail.com"
+    "name": "hundred98",
+    "email": "hundred98@163.com"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Seedream4/n8n-mobile.git"
+    "url": "git+https://github.com/hundred98/n8n-mobile-node.git"
   },
   "main": "index.js",
   "scripts": {
@@ -38,5 +38,8 @@
     "n8n-nodes-base": "^1.0.0",
     "@types/node": "^18.0.0",
     "typescript": "^4.8.0"
+  },
+  "dependencies": {
+    "n8n-workflow": "^0.142.0"
   }
 }
