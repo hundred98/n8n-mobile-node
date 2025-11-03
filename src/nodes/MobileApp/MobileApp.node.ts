@@ -55,11 +55,11 @@ export class MobileApp implements INodeType {
             value: 'auto',
             description: 'Automatically get parameters from webhook query',
           },
-          {
-            name: 'Manual',
-            value: 'manual',
-            description: 'Manually set parameters',
-          },
+          // {
+          //   name: 'Manual',
+          //   value: 'manual',
+          //   description: 'Manually set parameters',
+          // },
         ],
         default: 'auto',
         description: 'Where to get the parameters from',
@@ -80,11 +80,11 @@ export class MobileApp implements INodeType {
             value: 'auto',
             description: 'Automatically get parameters from webhook query or body',
           },
-          {
-            name: 'Manual',
-            value: 'manual',
-            description: 'Manually set parameters',
-          },
+          // {
+          //   name: 'Manual',
+          //   value: 'manual',
+          //   description: 'Manually set parameters',
+          // },
         ],
         default: 'auto',
         description: 'Where to get the parameters from',
