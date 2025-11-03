@@ -3,7 +3,6 @@
     {
       "parameters": {
         "path": "workflows/data",
-        "authentication": "basicAuth",
         "responseMode": "lastNode",
         "options": {}
       },
@@ -15,19 +14,12 @@
       ],
       "id": "a631362e-53ac-4d87-ad4b-39e2c9567040",
       "name": "Webhook",
-      "webhookId": "ef0a77f5-86ee-4d92-b8de-7d63c85b186f",
-      "credentials": {
-        "httpBasicAuth": {
-          "id": "leRFlKjtClbRZfVu",
-          "name": "mobile Auth"
-        }
-      }
+      "webhookId": "ef0a77f5-86ee-4d92-b8de-7d63c85b186f"
     },
     {
       "parameters": {
         "httpMethod": "POST",
         "path": "workflows/set",
-        "authentication": "basicAuth",
         "responseMode": "lastNode",
         "options": {}
       },
@@ -39,23 +31,17 @@
       ],
       "id": "4d386b46-afd9-4a1c-b321-8e491ab79a52",
       "name": "Webhook1",
-      "webhookId": "23bf05cb-b4fb-49ab-9667-cb98fc97d8f0",
-      "credentials": {
-        "httpBasicAuth": {
-          "id": "leRFlKjtClbRZfVu",
-          "name": "mobile Auth"
-        }
-      }
+      "webhookId": "23bf05cb-b4fb-49ab-9667-cb98fc97d8f0"
     },
     {
       "parameters": {},
-      "type": "CUSTOM.mobileApp",
+      "type": "n8n-nodes-mobile.mobileApp",
       "typeVersion": 1,
       "position": [
         224,
         208
       ],
-      "id": "abcd7d99-109b-4a20-b011-cb25fa2836cb",
+      "id": "2e0a693e-518f-463e-8602-fadc6b5ca879",
       "name": "Mobile App Integration",
       "credentials": {
         "n8nApi": {
@@ -66,15 +52,15 @@
     },
     {
       "parameters": {
-        "action": "setWorkflow"
+        "operation": "setWorkflow"
       },
-      "type": "CUSTOM.mobileApp",
+      "type": "n8n-nodes-mobile.mobileApp",
       "typeVersion": 1,
       "position": [
         224,
         0
       ],
-      "id": "1682efd8-3d3b-4f1b-976c-22ebf207efcc",
+      "id": "67204633-ec6a-48b6-b544-439836f619a3",
       "name": "Mobile App Integration1",
       "credentials": {
         "n8nApi": {
@@ -105,16 +91,6 @@
             "index": 0
           }
         ]
-      ]
-    },
-    "Mobile App Integration": {
-      "main": [
-        []
-      ]
-    },
-    "Mobile App Integration1": {
-      "main": [
-        []
       ]
     }
   },
