@@ -21,8 +21,8 @@ export class MobileApp implements INodeType {
     ],
     properties: [
       {
-        displayName: 'Action',
-        name: 'action',
+        displayName: 'Operation',
+        name: 'operation',
         type: 'options',
         options: [
           {
@@ -37,6 +37,7 @@ export class MobileApp implements INodeType {
           },
         ],
         default: 'getData',
+        description: 'Select the operation to perform',
       },
       {
         displayName: 'Parameter Source',
@@ -45,7 +46,7 @@ export class MobileApp implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            action: ['getData'],
+            operation: ['getData'],
           },
         },
         options: [
@@ -54,11 +55,11 @@ export class MobileApp implements INodeType {
             value: 'auto',
             description: 'Automatically get parameters from webhook query',
           },
-          // {
-          //   name: 'Manual',
-          //   value: 'manual',
-          //   description: 'Manually set parameters',
-          // },
+          {
+            name: 'Manual',
+            value: 'manual',
+            description: 'Manually set parameters',
+          },
         ],
         default: 'auto',
         description: 'Where to get the parameters from',
@@ -70,7 +71,7 @@ export class MobileApp implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            action: ['setWorkflow'],
+            operation: ['setWorkflow'],
           },
         },
         options: [
@@ -79,11 +80,11 @@ export class MobileApp implements INodeType {
             value: 'auto',
             description: 'Automatically get parameters from webhook query or body',
           },
-          // {
-          //   name: 'Manual',
-          //   value: 'manual',
-          //   description: 'Manually set parameters',
-          // },
+          {
+            name: 'Manual',
+            value: 'manual',
+            description: 'Manually set parameters',
+          },
         ],
         default: 'auto',
         description: 'Where to get the parameters from',
@@ -94,7 +95,7 @@ export class MobileApp implements INodeType {
         type: 'options',
         displayOptions: {
           show: {
-            action: ['getData'],
+            operation: ['getData'],
             parameterSource: ['manual'],
           },
         },
@@ -120,7 +121,7 @@ export class MobileApp implements INodeType {
         type: 'boolean',
         displayOptions: {
           show: {
-            action: ['getData'],
+            operation: ['getData'],
             dataType: ['workflows'],
             parameterSource: ['manual'],
           },
@@ -134,7 +135,7 @@ export class MobileApp implements INodeType {
         type: 'string',
         displayOptions: {
           show: {
-            action: ['getData'],
+            operation: ['getData'],
             dataType: ['executions'],
             parameterSource: ['manual'],
           },
@@ -149,7 +150,7 @@ export class MobileApp implements INodeType {
         type: 'number',
         displayOptions: {
           show: {
-            action: ['getData'],
+            operation: ['getData'],
             dataType: ['executions'],
             parameterSource: ['manual'],
           },
@@ -163,7 +164,7 @@ export class MobileApp implements INodeType {
         type: 'options',
         displayOptions: {
           show: {
-            action: ['getData'],
+            operation: ['getData'],
             dataType: ['executions'],
             parameterSource: ['manual'],
           },
@@ -196,7 +197,7 @@ export class MobileApp implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            action: ['setWorkflow'],
+            operation: ['setWorkflow'],
             parameterSource: ['manual'],
           },
         },
@@ -217,7 +218,7 @@ export class MobileApp implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            action: ['setWorkflow'],
+            operation: ['setWorkflow'],
             parameterSource: ['manual'],
           },
         },
@@ -231,7 +232,7 @@ export class MobileApp implements INodeType {
         required: true,
         displayOptions: {
           show: {
-            action: ['setWorkflow'],
+            operation: ['setWorkflow'],
             parameterSource: ['manual'],
             operationType: ['setStatus'],
           },
@@ -269,9 +270,9 @@ export class MobileApp implements INodeType {
     
     // Declare operationData at the top level to ensure it's available in all code paths
     let operationData: OperationData = {};
-    const action = this.getNodeParameter('action', 0);
+    const operation = this.getNodeParameter('operation', 0);
     
-    if (action === 'getData') {
+    if (operation === 'getData') {
       const parameterSource = this.getNodeParameter('parameterSource', 0) as string;
       
       // 从Webhook的查询参数获取（通过输入数据）
@@ -685,7 +686,7 @@ export class MobileApp implements INodeType {
         returnData.push({
           json: {
             success: false,
-            operation: (operationData as OperationData).operationType || 'unknown',
+            operation: operationData.operationType || 'unknown',
             message: error.message || String(error),
             timestamp: new Date().toISOString(),
             error: error.toString(),
@@ -693,7 +694,7 @@ export class MobileApp implements INodeType {
         });
       }
     }
-    else if (action === 'setWorkflow') {
+    else if (operation === 'setWorkflow') {
       // Reuse the top-level operationData variable
       operationData = {} as OperationData;
       try {
