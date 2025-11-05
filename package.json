@@ -1,6 +1,6 @@
 {
   "name": "n8n-nodes-mobile",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "n8n node for mobile app integration",
   "license": "MIT",
   "homepage": "https://github.com/hundred98/n8n-mobile-node#readme",
