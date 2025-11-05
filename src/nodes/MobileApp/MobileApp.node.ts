@@ -55,11 +55,11 @@ export class MobileApp implements INodeType {
             value: 'auto',
             description: 'Automatically get parameters from webhook query',
           },
-          // {
-          //   name: 'Manual',
-          //   value: 'manual',
-          //   description: 'Manually set parameters',
-          // },
+          {
+            name: 'Manual',
+            value: 'manual',
+            description: 'Manually set parameters',
+          },
         ],
         default: 'auto',
         description: 'Where to get the parameters from',
@@ -80,11 +80,11 @@ export class MobileApp implements INodeType {
             value: 'auto',
             description: 'Automatically get parameters from webhook query or body',
           },
-          // {
-          //   name: 'Manual',
-          //   value: 'manual',
-          //   description: 'Manually set parameters',
-          // },
+          {
+            name: 'Manual',
+            value: 'manual',
+            description: 'Manually set parameters',
+          },
         ],
         default: 'auto',
         description: 'Where to get the parameters from',
@@ -114,6 +114,21 @@ export class MobileApp implements INodeType {
         default: 'workflows',
         required: true,
         description: 'Type of data to retrieve',
+      },
+      {
+        displayName: 'Workflow ID',
+        name: 'workflowId',
+        type: 'string',
+        displayOptions: {
+          show: {
+            operation: ['getData'],
+            dataType: ['workflows'],
+            parameterSource: ['manual'],
+          },
+        },
+        required: false,
+        default: '',
+        description: 'The ID of the workflow to get details for',
       },
       {
         displayName: 'Include Disabled',
